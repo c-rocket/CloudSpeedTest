@@ -35,10 +35,10 @@ public class SpeedTestService {
 			smallPacket.add(i);
 		}
 		for (int j = 0; j < 1000; j++) {
-			smallPacket.add(j);
+			mediumPacket.add(j);
 		}
 		for (int k = 0; k < 100000; k++) {
-			smallPacket.add(k);
+			largePacket.add(k);
 		}
 	}
 
@@ -48,7 +48,6 @@ public class SpeedTestService {
 		}
 		started = true;
 		logger.info("starting speed test");
-		runDBTests();
 		Thread tests = new Thread() {
 			public void run() {
 				try {

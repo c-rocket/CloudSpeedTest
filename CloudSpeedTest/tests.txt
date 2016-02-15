@@ -1,0 +1,11 @@
+UI Tests (Show average number of requests made in 10 seconds, and average request time)
+Small Load - number of Requests made in 10 seconds x 3 (time in between for average response timing)
+Medium Load - number of requests made in 10 seconds x 3 (time in between for average response timing)
+Large Load - number of requests made in 10 seconds (time in between for average response timing)
+
+DB Tests (Show Average request time for each)
+Inserts - Time to insert 1000 records x 3
+Fetch - Time to fetch 1000 individual records x 3 (indexed, non-indexed columns)
+Fetch - Time to fetch all records x 3
+Updates - Time to update 1000 records x 3 (indexed, non-indexed columns)
+Deletes - Time to delete 1000 records x 3 (indexed, non-indexed columns)
