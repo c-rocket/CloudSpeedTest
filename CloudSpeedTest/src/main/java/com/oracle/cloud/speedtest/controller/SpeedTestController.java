@@ -50,7 +50,7 @@ public class SpeedTestController {
 	
 	@RequestMapping(value = "/speedtest/dbtest", method = RequestMethod.GET)
 	@ResponseBody
-	public List<Integer> dbTest() {
+	public Boolean dbTest() {
 		return service.dbTest();
 	}
 }

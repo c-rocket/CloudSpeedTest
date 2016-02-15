@@ -17,4 +17,9 @@ public class SpeedTestDao {
 	public void setDataSource(DataSource dataSource) {
 		jdbcTemplate = new JdbcTemplate(dataSource);
 	}
+
+	public void insertTestObjects(int numberOfObjects) {
+		// TODO Auto-generated method stub
+		
+	}
 }
