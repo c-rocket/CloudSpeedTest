@@ -14,6 +14,7 @@
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 		<metrics.version>3.1.0</metrics.version>
 	</properties>
+
 	<repositories>
 		<repository>
 			<id>CloudSpeedTest</id>
@@ -21,13 +22,8 @@
 			<url>https://developer.us2.oraclecloud.com/profile/developer81684-metcsgse00209/s/developer81684-metcsgse00209_cloudspeedtest/maven/</url>
 		</repository>
 	</repositories>
+
 	<dependencies>
-		<!-- Dropwizard Metrics -->
-		<dependency>
-			<groupId>io.dropwizard.metrics</groupId>
-			<artifactId>metrics-core</artifactId>
-			<version>${metrics.version}</version>
-		</dependency>
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -54,6 +50,11 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
 

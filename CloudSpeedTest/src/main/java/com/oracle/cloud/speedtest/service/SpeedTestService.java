@@ -1,8 +1,9 @@
 package com.oracle.cloud.speedtest.service;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -10,9 +11,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.codahale.metrics.ConsoleReporter;
-import com.codahale.metrics.MetricRegistry;
 import com.oracle.cloud.speedtest.dao.SpeedTestDao;
+import com.oracle.cloud.speedtest.util.MathUtil;
 
 @Service
 public class SpeedTestService {
@@ -24,10 +24,11 @@ public class SpeedTestService {
 	private List<Integer> mediumPacket = new ArrayList<Integer>();
 	private List<Integer> largePacket = new ArrayList<Integer>();
 
+	private List<Long> dbInserts = new ArrayList<Long>();
+	private List<Long> dbFullTableGets = new ArrayList<Long>();
+
 	@Resource
 	private SpeedTestDao dao;
-
-	private MetricRegistry metrics = new MetricRegistry();
 
 	public SpeedTestService() {
 		for (int i = 0; i < 10; i++) {
@@ -42,13 +43,23 @@ public class SpeedTestService {
 	}
 
 	public synchronized Boolean start() {
+		if (started) {
+			return false;
+		}
 		started = true;
 		logger.info("starting speed test");
-		//Start Console Reporter
-		ConsoleReporter reporter = ConsoleReporter.forRegistry(metrics).convertRatesTo(TimeUnit.SECONDS)
-				.convertDurationsTo(TimeUnit.MILLISECONDS).build();
-		reporter.start(1, TimeUnit.SECONDS);
-		
+		runDBTests();
+		Thread tests = new Thread() {
+			public void run() {
+				try {
+					runDBTests();
+					started = false;
+				} catch (Exception e) {
+					logger.error("Error running tests", e);
+				}
+			}
+		};
+		tests.start();
 		return started;
 	}
 
@@ -64,9 +75,42 @@ public class SpeedTestService {
 		return largePacket;
 	}
 
-	public Boolean dbTest() {
-		// Test inserts x3
-		dao.insertTestObjects(100);
-		return null;
+	private void runDBTests() {
+		testInserts();
+		testFullTableGets();
+	}
+
+	private void testFullTableGets() {
+		for (int i = 0; i < 20; i++) {
+			long startTime = System.nanoTime();
+			dao.getAll();
+			long endTime = System.nanoTime();
+			dbFullTableGets.add((endTime - startTime) / 1000000);
+		}
+	}
+
+	private void testInserts() {
+		for (int i = 0; i < 20; i++) {
+			long startTime = System.nanoTime();
+			dao.insertTestObjects("idxName" + i, "name" + i);
+			long endTime = System.nanoTime();
+			dbInserts.add((endTime - startTime) / 1000000);
+		}
+	}
+
+	public Boolean isRunning() {
+		return started;
+	}
+
+	public Map<String, Object> getResults() {
+		if (started) {
+			return null;
+		}
+		Map<String, Object> results = new LinkedHashMap<String, Object>();
+		results.put("dbInserts", MathUtil.average(dbInserts));
+		results.put("dbInsertsChart", dbInserts);
+		results.put("dbFullTableGets", MathUtil.average(dbFullTableGets));
+		results.put("dbFullTableGetsChart", dbFullTableGets);
+		return results;
 	}
 }

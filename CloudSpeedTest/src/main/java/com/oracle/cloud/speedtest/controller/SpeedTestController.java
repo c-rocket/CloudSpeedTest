@@ -3,6 +3,7 @@ package com.oracle.cloud.speedtest.controller;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -48,9 +49,15 @@ public class SpeedTestController {
 		return service.uiLargeTest();
 	}
 	
-	@RequestMapping(value = "/speedtest/dbtest", method = RequestMethod.GET)
+	@RequestMapping(value = "/speedtest/running", method = RequestMethod.GET)
 	@ResponseBody
-	public Boolean dbTest() {
-		return service.dbTest();
+	public Boolean isRunning() {
+		return service.isRunning();
+	}
+	
+	@RequestMapping(value = "/speedtest/results", method = RequestMethod.GET)
+	@ResponseBody
+	public Map<String,Object> getResults() {
+		return service.getResults();
 	}
 }

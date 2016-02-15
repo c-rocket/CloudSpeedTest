@@ -26,7 +26,7 @@
 
 	<context:component-scan base-package="com.oracle.cloud.speedtest" />
 
-	<beans:bean id="txManager"
+	<beans:bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<beans:property name="dataSource" ref="dataSource" />
 	</beans:bean>
