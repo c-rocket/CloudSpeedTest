@@ -31,6 +31,7 @@ public class SpeedTestService {
 	private SpeedTestDao dao;
 
 	public SpeedTestService() {
+		//Build UI packets for testing
 		for (int i = 0; i < 10; i++) {
 			smallPacket.add(i);
 		}
