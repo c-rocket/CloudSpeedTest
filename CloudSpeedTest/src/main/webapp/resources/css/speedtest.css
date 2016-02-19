@@ -1,0 +1,505 @@
+html, body {
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+/************************* CONTENT *************************/
+.md-toolbar-tools h1 {
+	font-size: inherit;
+	font-weight: inherit;
+	margin: inherit;
+}
+
+.content {
+	background-color: #f5f5f5;
+}
+
+.content-grid {
+	margin: 0 auto;
+}
+
+.device-content md-grid-tile {
+	min-width: 290px;
+	transition: all 300ms ease-out 50ms;
+}
+
+.content-grid md-grid-tile-header {
+	font-variant: small-caps;
+	color: black;
+	padding-left: 10px;
+}
+
+.content-grid md-grid-tile .device-info{
+	color: black;
+	display: block;
+	padding-top: 35px;
+	text-align: left;
+	font-variant: small-caps;
+	font-size: 13pt;
+	padding: 3px 5px;
+	margin-top: 48px;
+	width: 100%;
+}
+
+.content-grid md-grid-tile .events{
+	color: black;
+	display: block;
+	padding-top: 35px;
+	text-align: left;
+	font-variant: small-caps;
+	font-size: 13pt;
+	padding: 3px 5px;
+	width: 100%;
+}
+
+.content-grid .scrollable{
+	overflow: auto;
+	overflow-y: hidden;
+}
+
+.content-grid md-grid-tile h3 {
+	display: block;
+}
+
+ul {
+	list-style-type: none;
+	padding: 0 0 0 20px;
+}
+
+.alert-button {
+	margin-top: 5px;
+	width: 200px;
+}
+
+.event-toggle {
+	width:100%;
+	margin: 3px 0 3px 40px;
+}
+
+.navbar-fixed-top {
+	width:100%;
+}
+
+.data-form {
+	overflow: hidden;
+}
+
+.data-form md-input-container.md-default-theme label{
+	font-size: 10pt;
+	font-variant: small-caps;
+}
+
+.data-form md-input-container.md-default-theme .labelForSelect {
+	font-size: 7pt;
+	font-variant: small-caps;
+	color: rgba(0, 0, 0, 0.54);
+	-webkit-font-smoothing: antialiased;
+	padding-left: 2px;
+	position: relative;
+	top: 10px;
+	box-sizing: border-box;
+}
+
+.data-form md-switch{
+	font-size: 10pt;
+	font-variant: small-caps;
+	margin: 0 0 0 0;
+	text-align: left;
+}
+
+.data-form md-input-container label, md-input-container .md-placeholder{
+	color: rgba(0, 0, 0, 0.54);
+}
+
+.metricLabel {
+	font-variant: small-caps;
+	font-size: 15pt;
+	padding: 5px 20px 0 5px;
+	margin: 0 auto 0 0;
+}
+
+.metricValue {
+	font-variant: small-caps;
+	font-size: 22pt;
+}
+
+.tile0 {
+	background: -webkit-radial-gradient(circle, #00A6D4, #0090B5); /* Safari */
+	background: -o-radial-gradient(circle, #00A6D4, #0090B5); /* Opera 11.6 to 12.0 */
+	background: -moz-radial-gradient(circle, #00A6D4, #0090B5); /* Firefox 3.6 to 15 */
+	background: radial-gradient(circle, #00A6D4, #0090B5); /* Standard syntax */
+}
+
+.tile1 {
+	background: -webkit-radial-gradient(circle, #FF6A00, #CC5100); /* Safari */
+	background: -o-radial-gradient(circle, #FF6A00, #CC5100); /* Opera 11.6 to 12.0 */
+	background: -moz-radial-gradient(circle, #FF6A00, #CC5100); /* Firefox 3.6 to 15 */
+	background: radial-gradient(circle, #FF6A00, #CC5100); /* Standard syntax */
+}
+
+.tile2 {
+	background: -webkit-radial-gradient(circle, #009688, #007A6E); /* Safari */
+	background: -o-radial-gradient(circle, #009688, #007A6E); /* Opera 11.6 to 12.0 */
+	background: -moz-radial-gradient(circle, #009688, #007A6E); /* Firefox 3.6 to 15 */
+	background: radial-gradient(circle, #009688, #007A6E); /* Standard syntax */
+}
+
+.tile3 {
+	background: -webkit-radial-gradient(circle, #FFE566, #FFD800); /* Safari */
+	background: -o-radial-gradient(circle, #FFE566, #FFD800); /* Opera 11.6 to 12.0 */
+	background: -moz-radial-gradient(circle, #FFE566, #FFD800); /* Firefox 3.6 to 15 */
+	background: radial-gradient(circle, #FFE566, #FFD800); /* Standard syntax */
+}
+
+.tile4 {
+	background: -webkit-radial-gradient(circle, #4CFF00, #3BC600); /* Safari */
+	background: -o-radial-gradient(circle, #4CFF00, #3BC600); /* Opera 11.6 to 12.0 */
+	background: -moz-radial-gradient(circle, #4CFF00, #3BC600); /* Firefox 3.6 to 15 */
+	background: radial-gradient(circle, #4CFF00, #3BC600); /* Standard syntax */
+}
+
+.tile5 {
+	background: -webkit-radial-gradient(circle, #9967AF, #57007F); /* Safari */
+	background: -o-radial-gradient(circle, #9967AF, #57007F); /* Opera 11.6 to 12.0 */
+	background: -moz-radial-gradient(circle, #9967AF, #57007F); /* Firefox 3.6 to 15 */
+	background: radial-gradient(circle, #9967AF, #57007F); /* Standard syntax */
+}
+
+ .tile6 {
+	background: -webkit-radial-gradient(circle, #91C196, #63C66F); /* Safari */
+	background: -o-radial-gradient(circle, #91C196, #63C66F); /* Opera 11.6 to 12.0 */
+	background: -moz-radial-gradient(circle, #91C196, #63C66F); /* Firefox 3.6 to 15 */
+	background: radial-gradient(circle, #91C196, #63C66F); /* Standard syntax */
+}
+.grey {
+	background: -webkit-radial-gradient(circle, #C6C6C6, #7F7F7F); /* Safari */
+	background: -o-radial-gradient(circle, #C6C6C6, #7F7F7F); /* Opera 11.6 to 12.0 */
+	background: -moz-radial-gradient(circle, #C6C6C6, #7F7F7F); /* Firefox 3.6 to 15 */
+	background: radial-gradient(circle, #C6C6C6, #7F7F7F); /* Standard syntax */
+}
+
+.light-green {
+	background: -webkit-radial-gradient(circle, #72E580, #63C66F); /* Safari */
+	background: -o-radial-gradient(circle, #72E580, #63C66F); /* Opera 11.6 to 12.0 */
+	background: -moz-radial-gradient(circle, #72E580, #63C66F); /* Firefox 3.6 to 15 */
+	background: radial-gradient(circle, #72E580, #63C66F); /* Standard syntax */
+}
+
+.turquoise {
+	background: -webkit-radial-gradient(circle, #00E0E0,#00BCBC); /* Safari */
+	background: -o-radial-gradient(circle, #00E0E0,#00BCBC); /* Opera 11.6 to 12.0 */
+	background: -moz-radial-gradient(circle, #00E0E0,#00BCBC); /* Firefox 3.6 to 15 */
+	background: radial-gradient(circle, #00E0E0,#00BCBC); /* Standard syntax */
+}
+
+.blue {
+	background: -webkit-radial-gradient(circle, #8D9AD6, #6176D3); /* Safari */
+	background: -o-radial-gradient(circle, #8D9AD6, #6176D3); /* Opera 11.6 to 12.0 */
+	background: -moz-radial-gradient(circle, #8D9AD6, #6176D3); /* Firefox 3.6 to 15 */
+	background: radial-gradient(circle, #8D9AD6, #6176D3); /* Standard syntax */
+}
+
+.pink {
+	background: -webkit-radial-gradient(circle, #FF7F7F, #D36969); /* Safari */
+	background: -o-radial-gradient(circle, #FF7F7F, #D36969); /* Opera 11.6 to 12.0 */
+	background: -moz-radial-gradient(circle, #FF7F7F, #D36969); /* Firefox 3.6 to 15 */
+	background: radial-gradient(circle, #FF7F7F, #D36969); /* Standard syntax */
+}
+
+.purple {
+	background: -webkit-radial-gradient(circle, #DF9BE1, #B57EB7); /* Safari */
+	background: -o-radial-gradient(circle, #DF9BE1, #B57EB7); /* Opera 11.6 to 12.0 */
+	background: -moz-radial-gradient(circle, #DF9BE1, #B57EB7); /* Firefox 3.6 to 15 */
+	background: radial-gradient(circle, #DF9BE1, #B57EB7); /* Standard syntax */
+}
+
+.content {
+	background-color:rgb(242, 242, 242);
+}
+.side-nav {
+	background-color: rgb(234, 234, 234);
+}
+
+md-toolbar{
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #fff;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.1);
+    position: relative;
+    width: 100%;
+    min-height: 35px;
+    height: 35px;
+    z-index: 500;
+    font-variant: small-caps;
+}
+
+.page-padding {
+	padding-right: 20px;
+    padding-left: 20px;
+    width: 100%;
+}
+
+.top-bar {
+	background: url(../images/banner_bg.png) #2b9bd7 no-repeat;
+	height: 72px;
+}
+
+.title{
+	color: #454545;
+    display: inline-block;
+    position: relative;
+    vertical-align: baseline;
+    font-size: 18px;
+    font-weight: normal;
+    padding-left: 20px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #fff;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.1);
+}
+
+.md-sidenav-right {
+	margin-top: 104px;
+	height: 360px;
+}
+
+.md-sidenav-left {
+	margin-top: 104px;
+	height: 360px;
+}
+
+.create-button {
+	width: 200px;
+	color: white;
+	background: -webkit-radial-gradient(circle, #00A00D, #007205); /* Safari */
+	background: -o-radial-gradient(circle, #00A00D, #007205); /* Opera 11.6 to 12.0 */
+	background: -moz-radial-gradient(circle, #00A00D, #007205); /* Firefox 3.6 to 15 */
+	background: radial-gradient(circle, #00A00D, #007205); /* Standard syntax */
+}
+
+.create-button:not([disabled]) {
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.create-button:not([disabled]):hover {
+	background-color: rgba(0, 175, 17, 0.96);
+	color: white;
+}
+
+.create-button:not([disabled]):focus {
+	background-color: rgba(0, 127, 14, 0.96);
+	color: white;
+}
+
+.create-button[disabled] {
+	color: rgb(187, 187, 187);
+	background-color: rgba(230, 230, 229, 0.96);
+}
+
+.centered {
+	margin: 0 auto;
+	padding: 3px 10px 3px 10px;
+	text-align: center;
+}
+
+.device-content {
+	padding: 10px;
+}
+
+.brand-bar .config {
+	line-height: 27px;
+	height: 27px;
+	width: 27px;
+	cursor: pointer;
+	float: right;
+	vertical-align: bottom;
+	margin-top: 0;
+}
+
+.brand-bar .run-test-button {
+	height: 27px;
+	width: 27px;
+	background: url(../images/cog.png) no-repeat;
+	min-width: 27px;
+	z-index: 50;
+}
+
+.brand-bar .brand{
+	color: #454545;
+    cursor: pointer;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.brand-bar .brand .logo{
+    background-position: bottom;
+    display: inline-block;
+    height: 21px;
+    margin-right: 15px;
+}
+
+.brand-bar .brand .app-name {
+	color: #454545;
+	display: inline-block;
+	vertical-align: top;
+	font-size: 18px;
+	height: 21px;
+	margin-top: 10px;
+}
+
+@media only screen and (min-width: 1201px) {
+	.brand-bar .brand .logo {
+		background: url(../images/oracle_logo_sm.png) no-repeat;
+		min-width: 135px;
+		width: 135px;
+		margin-top: 12px;
+	}
+	.chart-cover {
+		height: 320px;
+		width: 55%;
+		overflow: visible;
+		margin: 15px auto auto auto;
+	}
+}
+
+@media only screen and (min-width: 961px) and (max-width: 1200px){
+	.brand-bar .brand .logo {
+		background: url(../images/oracle_logo_sm.png) no-repeat;
+		min-width: 135px;
+		width: 135px;
+		margin-top: 12px;
+	}
+	.chart-cover {
+		height: 320px;
+		width: 68%;
+		overflow: visible;
+		margin: 15px auto auto auto;
+	}
+}
+
+@media only screen and (min-width:601px) and (max-width: 960px) {
+	.brand-bar .brand .logo {
+		background: url(../images/oracle_logo_mobile.png) no-repeat;
+		min-width: 21px;
+		width: 21px;
+		margin-top: 9px;
+	}
+	.chart-cover {
+		height: 300px;
+		width: 65%;
+		overflow: visible;
+		margin: 15px auto auto auto;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.brand-bar .brand .logo {
+		background: url(../images/oracle_logo_mobile.png) no-repeat;
+		min-width: 21px;
+		width: 21px;
+		margin-top: 9px;
+	}
+	.chart-cover {
+		height: 320px;
+		width: 80%;
+		overflow: visible;
+		margin: 15px auto auto auto;
+	}
+}
+
+/************************* SETUP PAGE *************************/
+
+.setup-page h2 {
+	font-variant: small-caps;
+}
+
+.setup-page form label {
+	font-size: 11pt;
+	font-variant: small-caps;
+}
+
+.setup-page form input {
+	font-size: 9pt;
+	font-variant: small-caps;
+}
+
+.setup-page .message {
+	color: blue;
+	font-size: 12pt;
+	font-variant: small-caps;
+}
+
+.setup-page .brand-bar .home {
+	line-height: 30px;
+	height: 30px;
+	width: 30px;
+	cursor: pointer;
+	float: right;
+	vertical-align: bottom;
+	margin-top: 0;
+}
+
+.setup-page .brand-bar .home-button {
+	height: 30px;
+	width: 30px;
+	background: url(../images/home.png) no-repeat;
+	min-width: 27px;
+	z-index: 50;
+}
+
+.setup-page .new-upload form{
+	width: 100%; 
+	height:100%; 
+	overflow:hidden;
+}
+
+.content-with-header-2 {
+	margin: 0 4px 0 4px;
+	padding-top: 48px;
+	width: 100%; 
+	height: 230px; 
+}
+
+.content-with-header-3 {
+	margin: 0 4px 0 4px;
+	padding-top: 48px;
+	width: 100%; 
+	height: 360px; 
+}
+
+.config-tile {
+	background: -webkit-radial-gradient(circle, #f7f7f7, #f7f7f7); /* Safari */
+	background: -o-radial-gradient(circle, #f7f7f7, #f7f7f7); /* Opera 11.6 to 12.0 */
+	background: -moz-radial-gradient(circle, #f7f7f7, #f7f7f7); /* Firefox 3.6 to 15 */
+	background: radial-gradient(circle, #f7f7f7, #f7f7f7); /* Standard syntax */
+}
+
+.tile-header {
+	background-color: #e4e8ea;
+    background-image: -webkit-linear-gradient(top, #fff 0%, #f1f3f4 3.64%, #e8ebed 50%, #e4e8ea 100%);
+    background-image: linear-gradient(to bottom, #fff 0%, #f1f3f4 3.64%, #e8ebed 50%, #e4e8ea 100%);
+    border-color: #c4ced7;
+    color: #000;
+}
+
+.tile-header h2 {
+	font-size: 11pt;
+	font-weight: bolder;
+}
+
+.content-with-header-3 h4 {
+	font-size: 13pt;
+	font-variant: small-caps;
+	margin: 5px 0 0 0;
+}
+
+.content-with-header-3 ul {
+	margin: 0;
+	display: inline-block;
+}
+.message-div {
+	margin: 0 auto;
+	padding: 10px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+}

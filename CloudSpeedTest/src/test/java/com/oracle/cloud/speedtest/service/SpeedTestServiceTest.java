@@ -58,14 +58,16 @@ public class SpeedTestServiceTest {
 		while (running) {
 			running = service.isRunning();
 		}
-		Map<String, Object> results = service.getResults();
+		List<Map<String, Object>> results = service.getResults();
 
 		// assert
 		Mockito.verify(dao, Mockito.times(20)).insertTestObjects(Mockito.anyString(), Mockito.anyString());
 		Mockito.verify(dao, Mockito.times(20)).getAll();
-		assertNotNull(results.get("dbInserts"));
-		assertNotNull(results.get("dbInsertsChart"));
-		assertNotNull(results.get("dbFullTableGets"));
-		assertNotNull(results.get("dbFullTableGetsChart"));
+		assertNotNull(results.get(0).get("name"));
+		assertNotNull(results.get(0).get("average"));
+		assertNotNull(results.get(0).get("records"));
+		assertNotNull(results.get(1).get("name"));
+		assertNotNull(results.get(1).get("average"));
+		assertNotNull(results.get(1).get("records"));
 	}
 }

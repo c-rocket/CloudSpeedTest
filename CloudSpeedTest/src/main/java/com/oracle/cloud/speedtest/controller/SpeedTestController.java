@@ -57,7 +57,7 @@ public class SpeedTestController {
 	
 	@RequestMapping(value = "/speedtest/results", method = RequestMethod.GET)
 	@ResponseBody
-	public Map<String,Object> getResults() {
+	public List<Map<String,Object>> getResults() {
 		return service.getResults();
 	}
 }

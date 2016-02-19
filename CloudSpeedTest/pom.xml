@@ -110,7 +110,7 @@
 
 		<!-- Oracle DB -->
 		<dependency>
-			<groupId>com.oracle</groupId>
+			<groupId>com.oracle.ojdbc</groupId>
 			<artifactId>ojdbc7</artifactId>
 			<version>12.1.0.1</version>
 		</dependency>

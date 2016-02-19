@@ -26,7 +26,8 @@ public class SpeedTestService {
 
 	private List<Long> dbInserts = new ArrayList<Long>();
 	private List<Long> dbFullTableGets = new ArrayList<Long>();
-
+	private int dbFullTableCount = 0;
+	
 	@Resource
 	private SpeedTestDao dao;
 
@@ -83,9 +84,10 @@ public class SpeedTestService {
 	private void testFullTableGets() {
 		for (int i = 0; i < 20; i++) {
 			long startTime = System.nanoTime();
-			dao.getAll();
+			List<Map<String, Object>> list = dao.getAll();
 			long endTime = System.nanoTime();
 			dbFullTableGets.add((endTime - startTime) / 1000000);
+			dbFullTableCount = list.size();
 		}
 	}
 
@@ -102,15 +104,21 @@ public class SpeedTestService {
 		return started;
 	}
 
-	public Map<String, Object> getResults() {
+	public List<Map<String, Object>> getResults() {
 		if (started) {
 			return null;
 		}
-		Map<String, Object> results = new LinkedHashMap<String, Object>();
-		results.put("dbInserts", MathUtil.average(dbInserts));
-		results.put("dbInsertsChart", dbInserts);
-		results.put("dbFullTableGets", MathUtil.average(dbFullTableGets));
-		results.put("dbFullTableGetsChart", dbFullTableGets);
+		List<Map<String,Object>> results = new ArrayList<Map<String,Object>>();
+		results.add(getResult("DB Inserts",MathUtil.average(dbInserts),20));
+		results.add(getResult("Full Table Gets",MathUtil.average(dbFullTableGets),dbFullTableCount));
 		return results;
+	}
+
+	private Map<String, Object> getResult(String name,Long average, int records) {
+		Map<String, Object> result = new LinkedHashMap<String, Object>();
+		result.put("name", name);
+		result.put("average", average);
+		result.put("records", records);
+		return result;
 	}
 }
