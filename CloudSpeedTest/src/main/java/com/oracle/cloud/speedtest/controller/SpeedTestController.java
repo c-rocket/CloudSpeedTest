@@ -2,7 +2,6 @@ package com.oracle.cloud.speedtest.controller;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -25,7 +24,8 @@ public class SpeedTestController {
 	private SpeedTestService service;
 	
 	@RequestMapping(value = "/speedtest/start", method = RequestMethod.GET)
-	public Boolean startTest(Locale locale) {
+	@ResponseBody
+	public Boolean startTest() {
 		logger.info("Starting Speed Test {}.", new Date());
 		
 		return service.start();

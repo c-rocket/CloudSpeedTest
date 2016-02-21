@@ -13,6 +13,7 @@ html, body {
 
 .content {
 	background-color: #f5f5f5;
+	margin: 10px;
 }
 
 .content-grid {
@@ -30,29 +31,6 @@ html, body {
 	padding-left: 10px;
 }
 
-.content-grid md-grid-tile .device-info{
-	color: black;
-	display: block;
-	padding-top: 35px;
-	text-align: left;
-	font-variant: small-caps;
-	font-size: 13pt;
-	padding: 3px 5px;
-	margin-top: 48px;
-	width: 100%;
-}
-
-.content-grid md-grid-tile .events{
-	color: black;
-	display: block;
-	padding-top: 35px;
-	text-align: left;
-	font-variant: small-caps;
-	font-size: 13pt;
-	padding: 3px 5px;
-	width: 100%;
-}
-
 .content-grid .scrollable{
 	overflow: auto;
 	overflow-y: hidden;
@@ -65,16 +43,6 @@ html, body {
 ul {
 	list-style-type: none;
 	padding: 0 0 0 20px;
-}
-
-.alert-button {
-	margin-top: 5px;
-	width: 200px;
-}
-
-.event-toggle {
-	width:100%;
-	margin: 3px 0 3px 40px;
 }
 
 .navbar-fixed-top {
@@ -112,16 +80,21 @@ ul {
 	color: rgba(0, 0, 0, 0.54);
 }
 
-.metricLabel {
+.resultName {
 	font-variant: small-caps;
-	font-size: 15pt;
+	font-size: 25pt;
 	padding: 5px 20px 0 5px;
 	margin: 0 auto 0 0;
 }
 
-.metricValue {
+.resultAverage {
 	font-variant: small-caps;
-	font-size: 22pt;
+	font-size: 18pt;
+}
+
+.resultCount {
+	font-variant: small-caps;
+	font-size: 18pt;
 }
 
 .tile0 {
@@ -315,10 +288,10 @@ md-toolbar{
 	margin-top: 0;
 }
 
-.brand-bar .run-test-button {
+.run-test-button {
 	height: 27px;
 	width: 27px;
-	background: url(../images/cog.png) no-repeat;
+	background: url(../images/run.png) no-repeat;
 	min-width: 27px;
 	z-index: 50;
 }

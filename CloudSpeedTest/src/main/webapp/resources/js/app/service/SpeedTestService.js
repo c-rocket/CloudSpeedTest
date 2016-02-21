@@ -1,5 +1,4 @@
 'use strict';
-
 app.factory('SpeedTestService', function($http) {
 	var SpeedTestService = {
 		getResults : function(){

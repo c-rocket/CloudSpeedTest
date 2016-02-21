@@ -27,12 +27,15 @@ public class SpeedTestService {
 	private List<Long> dbInserts = new ArrayList<Long>();
 	private List<Long> dbFullTableGets = new ArrayList<Long>();
 	private int dbFullTableCount = 0;
-	
+	private int dbInsertsCount = 0;
+
+	private static final int TEST_RUNS = 2;
+
 	@Resource
 	private SpeedTestDao dao;
 
 	public SpeedTestService() {
-		//Build UI packets for testing
+		// Build UI packets for testing
 		for (int i = 0; i < 10; i++) {
 			smallPacket.add(i);
 		}
@@ -82,7 +85,8 @@ public class SpeedTestService {
 	}
 
 	private void testFullTableGets() {
-		for (int i = 0; i < 20; i++) {
+		for (int i = 0; i < TEST_RUNS; i++) {
+			logger.info("Running Full table gets: " + i);
 			long startTime = System.nanoTime();
 			List<Map<String, Object>> list = dao.getAll();
 			long endTime = System.nanoTime();
@@ -92,11 +96,13 @@ public class SpeedTestService {
 	}
 
 	private void testInserts() {
-		for (int i = 0; i < 20; i++) {
+		for (int i = 0; i < TEST_RUNS; i++) {
+			logger.info("Running test inserts: " + i);
 			long startTime = System.nanoTime();
 			dao.insertTestObjects("idxName" + i, "name" + i);
 			long endTime = System.nanoTime();
 			dbInserts.add((endTime - startTime) / 1000000);
+			dbInsertsCount = TEST_RUNS;
 		}
 	}
 
@@ -108,13 +114,15 @@ public class SpeedTestService {
 		if (started) {
 			return null;
 		}
-		List<Map<String,Object>> results = new ArrayList<Map<String,Object>>();
-		results.add(getResult("DB Inserts",MathUtil.average(dbInserts),20));
-		results.add(getResult("Full Table Gets",MathUtil.average(dbFullTableGets),dbFullTableCount));
+		List<Map<String, Object>> results = new ArrayList<Map<String, Object>>();
+		if (dbInserts.size() > 0 && dbFullTableGets.size() > 0) {
+			results.add(getResult("DB Inserts", MathUtil.average(dbInserts), dbInsertsCount));
+			results.add(getResult("Full Table Gets", MathUtil.average(dbFullTableGets), dbFullTableCount));
+		}
 		return results;
 	}
 
-	private Map<String, Object> getResult(String name,Long average, int records) {
+	private Map<String, Object> getResult(String name, Long average, int records) {
 		Map<String, Object> result = new LinkedHashMap<String, Object>();
 		result.put("name", name);
 		result.put("average", average);
