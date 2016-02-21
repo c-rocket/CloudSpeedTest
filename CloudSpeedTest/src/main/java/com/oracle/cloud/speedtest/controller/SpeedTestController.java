@@ -28,7 +28,7 @@ public class SpeedTestController {
 	public Boolean startTest() {
 		logger.info("Starting Speed Test {}.", new Date());
 		
-		return service.start();
+		return service.start(true);
 	}
 	
 	@RequestMapping(value = "/speedtest/uitest/small", method = RequestMethod.GET)

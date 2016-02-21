@@ -3,6 +3,7 @@ package com.oracle.cloud.speedtest.service;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -52,17 +53,17 @@ public class SpeedTestServiceTest {
 
 	@Test
 	public void runDBTests() throws Exception {
+		//setup
+		List<Map<String,Object>> records = new ArrayList<Map<String,Object>>();
+		Mockito.when(dao.getAll()).thenReturn(records);
+		
 		// execute
-		service.start();
-		boolean running = service.isRunning();
-		while (running) {
-			running = service.isRunning();
-		}
+		service.start(false);
 		List<Map<String, Object>> results = service.getResults();
 
 		// assert
-		Mockito.verify(dao, Mockito.times(20)).insertTestObjects(Mockito.anyString(), Mockito.anyString());
-		Mockito.verify(dao, Mockito.times(20)).getAll();
+		Mockito.verify(dao, Mockito.times(SpeedTestService.TEST_RUNS)).insertTestObjects(Mockito.anyString(), Mockito.anyString());
+		Mockito.verify(dao, Mockito.times(SpeedTestService.TEST_RUNS)).getAll();
 		assertNotNull(results.get(0).get("name"));
 		assertNotNull(results.get(0).get("average"));
 		assertNotNull(results.get(0).get("records"));

@@ -29,7 +29,7 @@ public class SpeedTestService {
 	private int dbFullTableCount = 0;
 	private int dbInsertsCount = 0;
 
-	private static final int TEST_RUNS = 2;
+	public static final int TEST_RUNS = 2;
 
 	@Resource
 	private SpeedTestDao dao;
@@ -47,23 +47,28 @@ public class SpeedTestService {
 		}
 	}
 
-	public synchronized Boolean start() {
+	public synchronized Boolean start(boolean threaded) {
 		if (started) {
 			return false;
 		}
 		started = true;
 		logger.info("starting speed test");
-		Thread tests = new Thread() {
-			public void run() {
-				try {
-					runDBTests();
-					started = false;
-				} catch (Exception e) {
-					logger.error("Error running tests", e);
+		if (threaded) {
+			Thread tests = new Thread() {
+				public void run() {
+					try {
+						runDBTests();
+						started = false;
+					} catch (Exception e) {
+						logger.error("Error running tests", e);
+					}
 				}
-			}
-		};
-		tests.start();
+			};
+			tests.start();
+		} else {
+			runDBTests();
+			started = false;
+		}
 		return started;
 	}
 
