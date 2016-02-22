@@ -18,6 +18,9 @@ app.factory('SpeedTestService', function($http) {
 		},
 		uiLargeTest : function() {
 			return $http.get(baseUrl + 'speedtest/uitest/large');
+		},
+		pingTest : function() {
+			return $http.get(baseUrl + 'speedtest/uitest/ping');
 		}
 	}
 	return SpeedTestService;

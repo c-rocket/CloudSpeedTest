@@ -19,6 +19,27 @@ app.controller('SpeedTestController', function($scope, $http, SpeedTestService) 
 	var startTime, endTime;
 	var tests = [];
 	var results = [];
+	function pingTestHandler(result) {
+		endTime = (new Date()).getTime() - startTime;
+		console.log(result);
+		tests.push(createTestRecord("UI Test: Ping", endTime, result.length));
+
+		if (tests.length >= UI_TEST_RUN_MAX) {
+			results.push(average(tests));
+			tests = [];
+			runSmallUITests();
+		} else {
+			runPingUITests();
+		}
+		return;
+	}
+
+	function runPingUITests() {
+		console.log("running ping UI Test");
+		startTime = (new Date()).getTime();
+		SpeedTestService.pingTest().success(pingTestHandler)
+	}
+	
 	function smallUITestHandler(result) {
 		endTime = (new Date()).getTime() - startTime;
 		console.log(result);
@@ -132,7 +153,7 @@ app.controller('SpeedTestController', function($scope, $http, SpeedTestService) 
 		$scope.results = [];
 		tests = [];
 		results = [];
-		runSmallUITests();
+		runPingUITests();
 	}
 
 });

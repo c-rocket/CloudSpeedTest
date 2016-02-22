@@ -31,6 +31,12 @@ public class SpeedTestController {
 		return service.start(true);
 	}
 	
+	@RequestMapping(value = "/speedtest/uitest/ping", method = RequestMethod.GET)
+	@ResponseBody
+	public Boolean pingTest() {
+		return true;
+	}
+	
 	@RequestMapping(value = "/speedtest/uitest/small", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Integer> uiSmallTest() {
