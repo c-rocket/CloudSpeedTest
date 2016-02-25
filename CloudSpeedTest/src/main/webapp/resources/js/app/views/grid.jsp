@@ -8,8 +8,8 @@
 	<section layout="column">
 		<div class="resultName">{{result.name}}</div><br />
 		<div class="resultAverage">Timing: {{result.average | metricFilter}} ms</div>
-		<div class="resultCount">Records Tested: {{result.records}}</div>
-		<div class="resultCount"># of Tests Run: {{result.timesRun}}</div>
+		<div class="resultCount">Records Tested: {{result.records | number}}</div>
+		<div class="resultCount"># of Tests Run: {{result.timesRun | number}}</div>
 	</section>
 	</md-grid-tile> </md-grid-list>
 </div>
