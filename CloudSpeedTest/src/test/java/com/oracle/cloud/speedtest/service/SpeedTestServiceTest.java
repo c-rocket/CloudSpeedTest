@@ -27,16 +27,16 @@ public class SpeedTestServiceTest {
 	@Test
 	public void getSmallUI() throws Exception {
 		// execute
-		List<Integer> smallTest = service.uiSmallTest();
+		List<Map<String,Object>> smallTest = service.uiSmallTest();
 
 		// assert
-		assertEquals(100, smallTest.size());
+		assertEquals(1000, smallTest.size());
 	}
 
 	@Test
 	public void getMediumUI() throws Exception {
 		// execute
-		List<Integer> mediumTest = service.uiMediumTest();
+		List<Map<String,Object>> mediumTest = service.uiMediumTest();
 
 		// assert
 		assertEquals(10000, mediumTest.size());
@@ -45,7 +45,7 @@ public class SpeedTestServiceTest {
 	@Test
 	public void getLargeUI() throws Exception {
 		// execute
-		List<Integer> largeTest = service.uiLargeTest();
+		List<Map<String,Object>> largeTest = service.uiLargeTest();
 
 		// assert
 		assertEquals(1000000, largeTest.size());

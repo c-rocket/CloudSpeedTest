@@ -39,19 +39,19 @@ public class SpeedTestController {
 	
 	@RequestMapping(value = "/speedtest/uitest/small", method = RequestMethod.GET)
 	@ResponseBody
-	public List<Integer> uiSmallTest() {
+	public List<Map<String,Object>> uiSmallTest() {
 		return service.uiSmallTest();
 	}
 	
 	@RequestMapping(value = "/speedtest/uitest/medium", method = RequestMethod.GET)
 	@ResponseBody
-	public List<Integer> uiMediumTest() {
+	public List<Map<String,Object>> uiMediumTest() {
 		return service.uiMediumTest();
 	}
 	
 	@RequestMapping(value = "/speedtest/uitest/large", method = RequestMethod.GET)
 	@ResponseBody
-	public List<Integer> uiLargeTest() {
+	public List<Map<String,Object>> uiLargeTest() {
 		return service.uiLargeTest();
 	}
 	

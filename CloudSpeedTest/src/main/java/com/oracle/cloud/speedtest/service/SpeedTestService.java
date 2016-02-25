@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import javax.annotation.Resource;
 
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.oracle.cloud.speedtest.dao.SpeedTestDao;
 import com.oracle.cloud.speedtest.util.MathUtil;
+import com.oracle.cloud.speedtest.util.StringUtil;
 
 @Service
 public class SpeedTestService {
@@ -20,9 +22,9 @@ public class SpeedTestService {
 
 	private Boolean started = false;
 
-	private List<Integer> smallPacket = new ArrayList<Integer>();
-	private List<Integer> mediumPacket = new ArrayList<Integer>();
-	private List<Integer> largePacket = new ArrayList<Integer>();
+	private List<Map<String,Object>> smallPacket = new ArrayList<Map<String,Object>>();
+	private List<Map<String,Object>> mediumPacket = new ArrayList<Map<String,Object>>();
+	private List<Map<String,Object>> largePacket = new ArrayList<Map<String,Object>>();
 
 	private List<Long> dbInserts = new ArrayList<Long>();
 	private List<Long> dbFullTableGets = new ArrayList<Long>();
@@ -31,21 +33,28 @@ public class SpeedTestService {
 	public static final int TEST_RUNS = 3;
 	
 	private String message = "Tests not running";
-
+	
 	@Resource
 	private SpeedTestDao dao;
 
 	public SpeedTestService() {
 		// Build UI packets for testing
-		for (int i = 0; i < 100; i++) {
-			smallPacket.add(i);
+		for (int i = 0; i < 1000; i++) {
+			smallPacket.add(testRecord(i));
 		}
 		for (int j = 0; j < 10000; j++) {
-			mediumPacket.add(j);
+			mediumPacket.add(testRecord(j));
 		}
 		for (int k = 0; k < 1000000; k++) {
-			largePacket.add(k);
+			largePacket.add(testRecord(k));
 		}
+	}
+
+	private Map<String, Object> testRecord(int seed) {
+		Map<String, Object> obj = new LinkedHashMap<String, Object>();
+		obj.put("name", StringUtil.random(10));
+		obj.put("value", seed);
+		return obj;
 	}
 
 	public synchronized Boolean start(boolean threaded) {
@@ -73,15 +82,15 @@ public class SpeedTestService {
 		return started;
 	}
 
-	public List<Integer> uiSmallTest() {
+	public List<Map<String,Object>> uiSmallTest() {
 		return smallPacket;
 	}
 
-	public List<Integer> uiMediumTest() {
+	public List<Map<String,Object>> uiMediumTest() {
 		return mediumPacket;
 	}
 
-	public List<Integer> uiLargeTest() {
+	public List<Map<String,Object>> uiLargeTest() {
 		return largePacket;
 	}
 
