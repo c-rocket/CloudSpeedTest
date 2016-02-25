@@ -9,7 +9,8 @@
 		<div class="app-name">Cloud Speed Test</div>
 	</a>
 	<div class="config">
-		<md-button class="run-test-button" title="Run Test" aria-label="Run Test" ng-click="runTests();"></md-button>
+		<md-button ng-hide="testsRunning" class="run-test-button" title="Run Tests" aria-label="Run Test" ng-click="runTests();"></md-button>
+		<img ng-show="testsRunning" class="running-test-button" src="<c:url value='/resources/images/spinner.gif'/>" alt="spinner"/>
 	</div>
 </div>
 </md-toolbar>

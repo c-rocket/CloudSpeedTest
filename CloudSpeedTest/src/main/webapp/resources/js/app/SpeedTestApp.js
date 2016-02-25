@@ -8,7 +8,7 @@ angular.module('speedTestFilters', []).filter('metricFilter', [function () {
 		}
 	};
 }]);
-var app = angular.module('speedTestApp', [ 'ngMaterial', 'speedTestFilters' ]);
+var app = angular.module('speedTestApp', [ 'ngMaterial', 'speedTestFilters']);
 
 app.config(function($logProvider) {
 	$logProvider.debugEnabled(true);

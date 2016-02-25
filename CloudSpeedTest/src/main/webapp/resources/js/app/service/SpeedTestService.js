@@ -10,17 +10,11 @@ app.factory('SpeedTestService', function($http) {
 		runDBTests : function() {
 			return $http.get(baseUrl + 'speedtest/start');
 		},
-		uiSmallTest : function() {
-			return $http.get(baseUrl + 'speedtest/uitest/small');
+		getMessage : function() {
+			return $http.get(baseUrl + 'speedtest/message');
 		},
-		uiMediumTest : function() {
-			return $http.get(baseUrl + 'speedtest/uitest/medium');
-		},
-		uiLargeTest : function() {
-			return $http.get(baseUrl + 'speedtest/uitest/large');
-		},
-		pingTest : function() {
-			return $http.get(baseUrl + 'speedtest/uitest/ping');
+		uiTest : function(url) {
+			return $http.get(url);
 		}
 	}
 	return SpeedTestService;

@@ -296,6 +296,16 @@ md-toolbar{
 	z-index: 50;
 }
 
+.running-test-button {
+	height: 27px;
+	width: 27px;
+	margin-top: 6px;
+	margin-left: 8px;
+	min-width: 27px;
+	z-index: 50;
+	cursor: default;
+}
+
 .brand-bar .brand{
 	color: #454545;
     cursor: pointer;
@@ -475,4 +485,13 @@ md-toolbar{
 	-webkit-border-radius: 20px;
 	-moz-border-radius: 20px;
 	border-radius: 20px;
+}
+.test-info {
+	background-color: #BFFFC6;
+	border: 2px solid #267F00;
+	padding: 15px;
+    border-radius: 10px;
+    width: 400px;
+    margin: 10 auto;
+    font-variant: small-caps;
 }

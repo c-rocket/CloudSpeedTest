@@ -27,9 +27,10 @@ public class SpeedTestService {
 	private List<Long> dbInserts = new ArrayList<Long>();
 	private List<Long> dbFullTableGets = new ArrayList<Long>();
 	private int dbFullTableCount = 0;
-	private int dbInsertsCount = 0;
 
-	public static final int TEST_RUNS = 2;
+	public static final int TEST_RUNS = 3;
+	
+	private String message = "Tests not running";
 
 	@Resource
 	private SpeedTestDao dao;
@@ -91,6 +92,7 @@ public class SpeedTestService {
 
 	private void testFullTableGets() {
 		for (int i = 0; i < TEST_RUNS; i++) {
+			message = "Running test: Full Table Gets " + (i+1) + " of " + TEST_RUNS;
 			logger.info("Running Full table gets: " + i);
 			long startTime = System.nanoTime();
 			List<Map<String, Object>> list = dao.getAll();
@@ -102,12 +104,12 @@ public class SpeedTestService {
 
 	private void testInserts() {
 		for (int i = 0; i < TEST_RUNS; i++) {
+			message = "Running test: DB Inserts " + (i+1) + " of " + TEST_RUNS;
 			logger.info("Running test inserts: " + i);
 			long startTime = System.nanoTime();
 			dao.insertTestObjects("idxName" + i, "name" + i);
 			long endTime = System.nanoTime();
 			dbInserts.add((endTime - startTime) / 1000000);
-			dbInsertsCount = TEST_RUNS;
 		}
 	}
 
@@ -116,12 +118,12 @@ public class SpeedTestService {
 	}
 
 	public List<Map<String, Object>> getResults() {
-		if (started) {
-			return null;
-		}
 		List<Map<String, Object>> results = new ArrayList<Map<String, Object>>();
+		if (started) {
+			return results;
+		}
 		if (dbInserts.size() > 0 && dbFullTableGets.size() > 0) {
-			results.add(getResult("DB Inserts", MathUtil.average(dbInserts), dbInsertsCount));
+			results.add(getResult("DB Inserts", MathUtil.average(dbInserts), 1));
 			results.add(getResult("Full Table Gets", MathUtil.average(dbFullTableGets), dbFullTableCount));
 		}
 		return results;
@@ -132,6 +134,13 @@ public class SpeedTestService {
 		result.put("name", name);
 		result.put("average", average);
 		result.put("records", records);
+		result.put("timesRun", TEST_RUNS);
 		return result;
+	}
+
+	public Map<String,String> getMessage() {
+		Map<String,String> map = new LinkedHashMap<String,String>();
+		map.put("message", message);
+		return map;
 	}
 }

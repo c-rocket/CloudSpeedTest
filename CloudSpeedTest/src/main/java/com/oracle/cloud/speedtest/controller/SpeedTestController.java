@@ -66,4 +66,10 @@ public class SpeedTestController {
 	public List<Map<String,Object>> getResults() {
 		return service.getResults();
 	}
+	
+	@RequestMapping(value = "/speedtest/message", method = RequestMethod.GET)
+	@ResponseBody
+	public Map<String,String> getMessage() {
+		return service.getMessage();
+	}
 }
