@@ -48,7 +48,7 @@ public class SpeedTestServiceTest {
 		List<Map<String,Object>> largeTest = service.uiLargeTest();
 
 		// assert
-		assertEquals(1000000, largeTest.size());
+		assertEquals(100000, largeTest.size());
 	}
 
 	@Test

@@ -45,7 +45,7 @@ public class SpeedTestService {
 		for (int j = 0; j < 10000; j++) {
 			mediumPacket.add(testRecord(j));
 		}
-		for (int k = 0; k < 1000000; k++) {
+		for (int k = 0; k < 100000; k++) {
 			largePacket.add(testRecord(k));
 		}
 	}
