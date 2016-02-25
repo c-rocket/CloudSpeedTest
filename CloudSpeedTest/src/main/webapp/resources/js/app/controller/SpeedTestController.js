@@ -101,7 +101,7 @@ app.controller('SpeedTestController',
 				var record = {};
 				record.name = name;
 				record.average = timing;
-				record.records = recordCount;
+				record.records = (recordCount) ? recordCount : 1;
 				record.timesRun = timesRun;
 				return record;
 			}
