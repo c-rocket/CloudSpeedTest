@@ -30,7 +30,7 @@ public class SpeedTestServiceTest {
 		List<Integer> smallTest = service.uiSmallTest();
 
 		// assert
-		assertEquals(10, smallTest.size());
+		assertEquals(100, smallTest.size());
 	}
 
 	@Test
@@ -39,7 +39,7 @@ public class SpeedTestServiceTest {
 		List<Integer> mediumTest = service.uiMediumTest();
 
 		// assert
-		assertEquals(1000, mediumTest.size());
+		assertEquals(10000, mediumTest.size());
 	}
 
 	@Test
@@ -48,7 +48,7 @@ public class SpeedTestServiceTest {
 		List<Integer> largeTest = service.uiLargeTest();
 
 		// assert
-		assertEquals(100000, largeTest.size());
+		assertEquals(1000000, largeTest.size());
 	}
 
 	@Test
