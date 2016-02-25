@@ -6,6 +6,9 @@
 <meta name="description" content="Oracle Cloud Speed Test">
 <meta name="keywords" content="Oracle Cloud Speed Test">
 <meta name="author" content="Oracle">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 
 <link rel="shortcut icon" href="<c:url value='/resources/images/favicon.ico'/>" type="image/x-icon" />
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css" />
