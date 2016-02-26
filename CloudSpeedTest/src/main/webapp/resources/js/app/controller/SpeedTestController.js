@@ -14,7 +14,7 @@ app.controller('SpeedTestController',
 
 			$scope.init = function() {
 				$scope.results = [];
-				SpeedTestService.getResults().success(resultsHandler);
+				$scope.testsRunning = false;
 			}
 
 			var startTime, endTime;
