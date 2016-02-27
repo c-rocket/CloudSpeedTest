@@ -74,10 +74,10 @@ app
 						if (currentTest < uiTests.length) {
 							runUITest();
 						} else {
-							// runDBTests();
-							$scope.testInformation = 'Tests Completed';
-							$scope.testsRunning = false;
-							SpeedTestService.getResults().success(resultsHandler);
+							 runDBTests();
+//							$scope.testInformation = 'Tests Completed';
+//							$scope.testsRunning = false;
+//							SpeedTestService.getResults().success(resultsHandler);
 						}
 						return;
 					}
