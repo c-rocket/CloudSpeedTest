@@ -16,6 +16,45 @@ html, body {
 	margin: 10px;
 }
 
+.grid-item {
+	cursor: pointer;
+}
+
+.grid-item:hover{
+    opacity: .8;
+}
+
+.dialogdemoBasicUsage #popupContainer {
+	position: relative;
+}
+
+.md-toolbar-tools h2 {
+	color: #000000;
+}
+
+.details ol {
+	margin: 5px 50px 5px 5px;
+}
+
+.details ol li{
+	text-align: right;
+}
+
+.dialogdemoBasicUsage .footer {
+	width: 100%;
+	text-align: center;
+	margin-left: 20px;
+}
+
+.dialogdemoBasicUsage .footer, .dialogdemoBasicUsage .footer>code {
+	font-size: 0.8em;
+	margin-top: 50px;
+}
+
+md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
+	background-color: #ffffff;
+}
+
 .content-grid {
 	margin: 0 auto;
 }
@@ -213,7 +252,7 @@ md-toolbar{
 }
 
 .top-bar {
-	background: url(../images/banner_bg.png) #2b9bd7 no-repeat;
+	background: url(../images/banner_bg.png) #2b9bd7;
 	height: 72px;
 }
 
@@ -293,6 +332,15 @@ md-toolbar{
 	width: 27px;
 	background: url(../images/run.png) no-repeat;
 	min-width: 27px;
+	z-index: 50;
+}
+
+.close-details {
+	height: 20px;
+	width: 20px;
+	margin-top: 6px !important;
+	background: url(../images/ic_close_24px.svg) no-repeat;
+	min-width: 20px;
 	z-index: 50;
 }
 

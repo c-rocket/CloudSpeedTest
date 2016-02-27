@@ -131,18 +131,21 @@ public class SpeedTestService {
 			return results;
 		}
 		if (dbInserts.size() > 0 && dbFullTableGets.size() > 0) {
-			results.add(getResult("DB Inserts", MathUtil.average(dbInserts), 1));
-			results.add(getResult("Full Table Gets", MathUtil.average(dbFullTableGets), dbFullTableCount));
+			results.add(getResult("DB Inserts", MathUtil.average(dbInserts), 1, "This test defines the timing to do a single insert into the DB from the application", dbInserts));
+			results.add(getResult("Full Table Gets", MathUtil.average(dbFullTableGets), dbFullTableCount,"This test defines the timing to pull all the records from a large table get",dbFullTableGets));
 		}
 		return results;
 	}
 
-	private Map<String, Object> getResult(String name, Long average, int records) {
+	private Map<String, Object> getResult(String name, Long average, int records, String description, List<Long> readings) {
 		Map<String, Object> result = new LinkedHashMap<String, Object>();
 		result.put("name", name);
+		result.put("title", name);
 		result.put("average", average);
 		result.put("records", records);
 		result.put("timesRun", TEST_RUNS);
+		result.put("details", readings);
+		result.put("description", description);
 		return result;
 	}
 
