@@ -79,7 +79,6 @@ app
 //							$scope.testsRunning = false;
 //							SpeedTestService.getResults().success(resultsHandler);
 						}
-						return;
 					}
 
 					function runUITest() {
@@ -130,19 +129,16 @@ app
 						record.name = records[0].name;
 						record.records = records[0].records;
 						record.timesRun = records.length;
+						record.title = records[0].name;
+						record.details = [];
 						var total = 0;
 						for (var i = 0; i < records.length; i++) {
 							total = total + records[i].average;
+							record.details.push(records[i].average);
 						}
 						record.average = total / records.length;
 						return record;
 					}
-
-					$scope.showDetails2 = function(testCount, ev) {
-						$mdDialog.show($mdDialog.alert().parent(angular.element(document.querySelector('#testgrid'))).clickOutsideToClose(
-								true).title(uiTests[testCount].title).textContent(uiTests[testCount].description).ariaLabel(
-								uiTests[testCount].title).ok('Got it!').targetEvent(ev));
-					};
 
 					$scope.showDetails = function(testCount, ev) {
 						var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
@@ -154,9 +150,9 @@ app
 							clickOutsideToClose : true,
 							fullscreen : useFullScreen,
 							locals : {
-								title : uiTests[testCount].title,
-								description : uiTests[testCount].description,
-								details : uiTests[testCount].details
+								title : $scope.results[testCount].title,
+								description : $scope.results[testCount].description,
+								details : $scope.results[testCount].details
 							}
 						});
 						$scope.$watch(function() {
@@ -177,12 +173,18 @@ function DialogController($scope, $mdDialog, $timeout, title, description, detai
 	var data = [];
 	var start = [];
 	var labels = [];
+	var detailObjs = [];
 	for (var i = 0; i < details.length; i++) {
 		labels.push('Test ' + (i + 1));
-		data.push(details[i].average);
+		data.push(details[i]);
 		start.push(0);
+		detailObjs.push({
+			id:i,
+			average:details[i]
+		});
 	}
 
+	$scope.details = detailObjs;
 	$scope.labels = labels;
 	$scope.data = [ start ];
 	$timeout(function() {

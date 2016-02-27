@@ -94,6 +94,9 @@ public class SpeedTestService {
 	}
 
 	private void runDBTests() {
+		dbInserts.clear();
+		dbFullTableGets.clear();;
+		dbFullTableCount = 0;
 		testInserts();
 		testFullTableGets();
 	}
